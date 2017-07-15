@@ -3,7 +3,7 @@ import React from 'react';
 const HomeBottomComponent = () => {
     return (
       <div className = "homebottombox yellow">
-        <span className="h1 toppad">About</span>
+        <span className="h1 toppad" style={{padding: "50px"}}>About</span>
         <div className = "homeboxabout">
           <div className = "about">
             <img src="/img/student.png" className = "aboutimg"/>

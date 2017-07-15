@@ -5,9 +5,9 @@ import TutorRegisterComponent from './components/TutorRegisterComponent';
 import StudentHomeComponent from './components/StudentHomeComponent';
 import HomeComponent from './components/Home/HomeComponent';
 import ChatRoom from './components/ChatRoom';
+import Logout from './components/Logout';
 
 const socket = io();
-console.log('SOCKET: ',socket);
 
 export default (
 	<Switch>
@@ -15,6 +15,7 @@ export default (
     <Route exact path="/tutor/register" component={TutorRegisterComponent} />
     <Route exact path="/tutor/home" render={() => <TutorHomeComponent socket={socket}/>} />
 		<Route path="/chatroom/:grade/:subject" render={({match}) => <ChatRoom socket={socket} match={match}/>} />
-    <Route exact path="/" component={HomeComponent} />
+		<Route path="/logout" component={Logout} />
+		<Route exact path="/" component={HomeComponent} />
 	</Switch>
 );

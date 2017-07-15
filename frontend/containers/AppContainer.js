@@ -13,9 +13,7 @@ import HomeHeaderComponent from '../Components/Header';
 const AppContainer = (props) => {
   return (
     <div>
-      {/* <Link to="/"> */}
       <HomeHeaderComponent/>
-    {/* </Link> */}
     { Routes }
   </div>
   );

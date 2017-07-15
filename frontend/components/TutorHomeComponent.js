@@ -15,7 +15,6 @@ class TutorHomeComponent extends React.Component {
     const tutorUsername = "Tutor"+Math.round(Math.random()*1000);
     localStorage.setItem('username', tutorUsername);
   }
-
   join(room) {
     // this.setState({roomName: room});
     this.state.socket.emit('room', {requestedRoom: room, username: this.state.username});
@@ -55,9 +54,9 @@ class TutorHomeComponent extends React.Component {
 
     return (
       <div>
-        {/* <div className="infoimg">
+        <div className="infoimg">
           <img src="/img/tutorinfo.png" className="info" />
-        </div> */}
+        </div>
         <RoomListComponent socket={this.state.socket}
           room={'ROOMSLIST'}
           courses={this.state.courses} />

@@ -77,7 +77,7 @@ class ChatRoomMessages extends React.Component {
 
   render () {
     return (
-      <div className="chatbox yellow">
+      <div className="yellow" id="chatbox">
         {/* map through array of messages, print out all */}
         {this.state.messages.map((msg, index) => {
           var classes = "chatroom_msg";
@@ -106,7 +106,7 @@ class ChatRoomMessages extends React.Component {
         {/* map through array of typing users, display all typing */}
         <div>
           {this.state.typingusers.map((user, index) => {
-            return <span key={index} className="typing_user">{user} is typing...</span>
+            return <span key={index} className="typing_user text-left">{user} is typing...</span>
           })}
         </div>
 

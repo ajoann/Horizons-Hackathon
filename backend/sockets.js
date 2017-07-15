@@ -14,6 +14,11 @@ module.exports = function(io) {
       io.to('ROOMSLIST').emit('getrooms', roomUsers);
     });
 
+    socket.on('startedCall', (tutorName) => {
+      console.log('server received started call');
+      io.to(socket.room).emit('startedCall', tutorName);
+    });
+
     /** LISTENERS FOR CHAT ROOM **/
     // RECEIVE ROOM
     socket.on('room', ({requestedRoom, username}) => {

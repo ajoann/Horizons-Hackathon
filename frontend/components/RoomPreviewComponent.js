@@ -13,7 +13,9 @@ class RoomPreviewComponent extends React.Component {
       courses: props.courses,
       username: localStorage.getItem('username'),
       preferences: [],
-      isTutor: false
+      // room: props.room,
+      isTutor: false,
+      videoRoomLive: false
     };
   }
 
@@ -64,14 +66,12 @@ class RoomPreviewComponent extends React.Component {
 
   render() {
     console.log('courses: ',this.state.courses);
-    const imgSrc = (this.state.isTutor) ? "/img/tutorinfo.png" : "/img/student.png";
+    const imgSrc = (this.state.isTutor) ? "/img/tutorinfo.png" : "/img/info2.png";
     // console.log('username: ',this.state.username, this.state.username.indexOf('Tutor'));
     return(
       <div>
         <div className={'flexcenter'} style={{flexDirection: 'column'}}>
-          <div className="infoimg">
-            <img src="/img/tutorinfo.png" className="info" />
-          </div>
+
           <div>
           { this.state.courses.length < 1 ?
             <div>
