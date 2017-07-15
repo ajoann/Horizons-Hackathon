@@ -50,11 +50,11 @@ class GetHelpComponent extends React.Component {
         const linkTo = "/chatroom/"+this.state.grade+"/"+this.state.subject;
         return (
             <div className={'flexboxcol'}>
-                <h2 style={{flex:1}}>I need help in ....</h2>
+              <span className = "h1">I need help with...</span>
                 <form onSubmit={this.handleSubmit} className={'flexbox'}>
                     <label style={{flex:1, textAlign: 'center'}}>
                         Select Your Grade
-                        <select value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Grade'>
+                        <select className="dropdown pink" value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Select Your Grade'>
                             <option value="4">Grade 4</option>
                             <option value="5">Grade 5</option>
                             <option value="6">Grade 6</option>
@@ -68,7 +68,7 @@ class GetHelpComponent extends React.Component {
                     </label>
                     <label style={{flex:1, textAlign: 'center'}}>
                         Select a Course
-                        <select value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
+                        <select className="dropdown pink" value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
                             <option value="Math">Math</option>
                             <option value="Physics">Physics</option>
                             <option value="Chemistry">Chemistry</option>
@@ -78,9 +78,9 @@ class GetHelpComponent extends React.Component {
                             <option value="Biology">Biology</option>
                         </select>
                     </label>
-                    <Link style={{flex:1}} to={linkTo}>
-                        <input type="submit" value="Submit" />
-                    </Link>
+                    <button className="loginbutton pink" type="submit">
+                      <Link className="h4" to="/tutor/home">Sign me up</Link>
+                    </button>
                 </form>
                 {(this.state.current_room) ?
                   <ChatRoom grade={this.state.grade}

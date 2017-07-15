@@ -43,10 +43,56 @@ class RoomPreviewComponent extends React.Component {
               }
             })}
 
-            <div className={'flexbox'}>
+            <div className="flexcenter rooms">
 
               {this.state.courses.map((course, index) => (
-                <button key={index} className={'classbutton'}>Grade: {course.Grade}, {course.Course}</button>
+                <button key={index} className="flexcenter roomcontainer yellow">
+                  <img className="apple" src="/img/apple.png" style={{height:'100px'}}/>
+                  <div className='flexcolumn'>
+                    <span className="h4"> Grade {course.Grade} </span>
+                    <span className="h4"> {course.Course} </span>
+                  </div>
+                </button>
+              ))}
+
+              {this.state.courses.map((course, index) => (
+                <button key={index} className="flexcenter roomcontainer yellow">
+                  <img className="apple" src="/img/apple.png" className="apple"/>
+                  <div className='flexcolumn'>
+                    <span className="h4"> Grade {course.Grade} </span>
+                    <span className="h4"> {course.Course} </span>
+                  </div>
+                </button>
+              ))}
+
+              {this.state.courses.map((course, index) => (
+                <button key={index} className="flexcenter roomcontainer yellow">
+                  <img className="apple" src="/img/apple.png" style={{height:'100px'}}/>
+                  <div className='flexcolumn'>
+                    <span className="h4"> Grade {course.Grade} </span>
+                    <span className="h4"> {course.Course} </span>
+                  </div>
+                </button>
+              ))}
+
+              {this.state.courses.map((course, index) => (
+                <button key={index} className="flexcenter roomcontainer yellow">
+                  <img className="apple" src="/img/apple.png" style={{height:'100px'}}/>
+                  <div className='flexcolumn'>
+                    <span className="h4"> Grade {course.Grade} </span>
+                    <span className="h4"> {course.Course} </span>
+                  </div>
+                </button>
+              ))}
+
+              {this.state.courses.map((course, index) => (
+                <button key={index} className="flexcenter roomcontainer yellow">
+                  <img className="apple" src="/img/apple.png" style={{height:'100px'}}/>
+                  <div className='flexcolumn'>
+                    <span className="h4"> Grade {course.Grade} </span>
+                    <span className="h4"> {course.Course} </span>
+                  </div>
+                </button>
               ))}
 
             </div>

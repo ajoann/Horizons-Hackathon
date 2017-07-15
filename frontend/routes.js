@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import TutorHomeComponent from './components/TutorHomeComponent';
-import TutorRegisterComponent from './components/TutorRegisterComponent';
+import TutorRegisterComponent from './components/TutorRegister/TutorRegisterComponent';
 import StudentHomeComponent from './components/StudentHomeComponent';
 import HomeComponent from './components/Home/HomeComponent';
 

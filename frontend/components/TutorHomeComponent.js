@@ -8,6 +8,9 @@ const TutorHomeComponent = (props) => {
 
   return (
     <div>
+      <div className="infoimg">
+        <img src="/img/tutorinfo.png" className="info"/>
+      </div>
       <RoomListComponent socket={props.socket} />
     </div>
   );

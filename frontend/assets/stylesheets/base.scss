@@ -1,3 +1,14 @@
+.flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -41,92 +52,33 @@
   width: 100%;
   padding-bottom: 100px
 }
+
 .homebutton {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding: 15px 200px;
   border-radius: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0px 40px;
 }
+
 .loginbutton {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 120px;
-  padding-right: 120px;
+  padding: 15px 120px;
   border-radius: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 50px
+  margin: 50px 40px 0px 40px;
 }
+
 .about {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 500px;
 }
-//CHAT
-.chatboxheader {
-  display: flex;
-  width: 80vw;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  justify-content: center;
-}
-.chatbox {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  width: 80vw;
-}
-.chatbutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 6vh;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  margin-left: 20px
-}
-.chatbuttoncontainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.inputfield {
-  height: 6vh;
-  border-radius: 20px;
-  margin-top: 2vh
-}
-.sendbutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 6vh;
-  width: 10vh;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-image: none;
-  border-color: #eb6a6a;
-  margin-top: 2vh
-}
+
 //IMAGES
 .logo {
   height: 130px;
@@ -138,16 +90,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1000px;
 }
 .info {
   padding-top: 50px;
-  height: 250px
+  height: 300px
 }
 .desk {
   padding-top: 50px;
   height: 220px
 }
+.apple {
+  height: 100px;
+  padding-right: 40px
+}
+
 //FONTS
 .h1 {
   padding-bottom: 50px;
@@ -172,7 +128,8 @@
   font-family: 'Source Sans Pro';
   font-weight: 600;
   font-size: 25px;
-  color: #00568c
+  color: #00568c;
+  // width: 5vw;
 }
 .h5 {
   font-family: 'Source Sans Pro';
@@ -180,6 +137,13 @@
   font-size: 25px;
   color: #eb6a6a;
   padding-top: 25px;
+}
+.h6 {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 15px;
+  color: #00568c;
+  // width: 5vw;
 }
 .chatred {
   font-family: 'Source Sans Pro';
@@ -193,6 +157,7 @@
   font-size: 20px;
   color: #00568c
 }
+
 //COLORS
 .red {
   background-color: #eb6a6a
@@ -209,13 +174,97 @@
 .toppad {
   padding-top: 50px
 }
+
+.rooms {
+  flex-wrap: wrap;
+  display: flex;
+  padding: 2vh;
+  justify-content: center;
+}
+
+.roomcontainer {
+  padding: 10px 55px;
+  border-radius: 20px;
+  margin: 50px 30px 0px 30px;
+}
+
+//TUTOR RESGISTER
+
+.tutorinput {
+  padding: 10px 30px;
+  margin-left: 5vw;
+  border-radius: 20px;
+  border-color: #ffc6c9;
+  border-width: 5px;
+  border-style: solid;
+  width: 40vh;
+}
+
+.registerbox {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.dropdown {
+  width: 20vw;
+  height: 50px;
+}
+
 //CHATROOM component -- currently inside APPCONTAINER
+
+.chatboxheader {
+  display: flex;
+  width: 80vw;
+  padding: 2vh;
+  justify-content: center;
+}
+.chatbox {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 80vw;
+  align-items: center;
+}
+.chatbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-left: 20px
+}
+.chatbuttoncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputfield {
+  height: 6vh;
+  border-radius: 20px;
+  margin-top: 2vh
+}
+.sendbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  width: 10vh;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin: 2vh 20px 0px 20px;
+  background-image: none;
+  border-color: #eb6a6a;
+}
+
 .chatroom {
-  // width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // align-items: center;
   padding: 5%;
 }
 .chatroom_header {
@@ -246,13 +295,12 @@
 .chatroom_messages_box h2 {
   flex: 1;
 }
-// CHATROOMMESSAGES component -- inside CHATROOM
+
 .chatroom_messages {
   flex: 6;
 }
 .chatroom_msg {
   margin: 5px 10px;
-  // font-weight: 400;
 }
 .own_msg {
   color: grey; // any color but different from other msgs!
