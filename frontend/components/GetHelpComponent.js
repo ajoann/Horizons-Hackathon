@@ -134,5 +134,4 @@ class GetHelpComponent extends React.Component {
   }
 };
 
-
 export default GetHelpComponent;

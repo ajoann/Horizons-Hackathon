@@ -49,10 +49,23 @@ class RoomPreviewComponent extends React.Component {
 
   render() {
     console.log('courses: ',this.state.courses);
+    // console.log('username: ',this.state.username, this.state.username.indexOf('Tutor'));
     return(
       <div>
         <div className={'flexbox'}>
-          {this.state.courses.map((course, index) => {
+        { this.state.courses.length < 1 ?
+
+          <div className="h4 text-center"> No classes currently active.
+            {this.state.username.indexOf('Tutor') === 0 ?
+              <div className="h4 text-center"> Come back another time when students are online!</div>
+              :
+              <div className="h4 text-center"> Add a class by selecting a Grade and Subject!</div>
+            }
+          </div>
+
+
+          :
+          this.state.courses.map((course, index) => {
             const linkTo = "/chatroom/"+course.Grade+"/"+course.Subject;
             console.log('course: ',course);
             return (
@@ -65,7 +78,7 @@ class RoomPreviewComponent extends React.Component {
                 </Link>
               </button>
             )
-          })}
+        })}
         </div>
       </div>
     );
