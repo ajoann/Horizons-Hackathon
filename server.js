@@ -58,7 +58,7 @@ app.use('/api', api);
 
 //Route that leads to the React App!
 app.get('/*', (request, response) => {
-  response.sendFile(__dirname + '/public/index.html');
+  response.sendFile(__dirname + '/public/app.html');
 });
 server.listen(PORT, error => {
     error
