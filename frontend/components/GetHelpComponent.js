@@ -115,6 +115,9 @@ class GetHelpComponent extends React.Component {
                     </form>
                   </div>
                     <button className="loginbutton pink" type="submit">
+                      <Link className="h2" style={{flex:1}} to={linkTo}>
+                        Sign me up
+                      </Link>
                       <Link className="h2" to="/tutor/home">Sign me up</Link>
                     </button>
                 {(this.state.current_room) ?
@@ -130,59 +133,59 @@ class GetHelpComponent extends React.Component {
             </div>
         );
     }
-// =======
-//     return (
-//       <div className={'flexboxcol'}>
-//         <h2 style={{flex:1}}>I need help in ....</h2>
-//         <form onSubmit={this.handleSubmit} className={'flexbox'}>
-//           <label style={{flex:1, textAlign: 'center'}}>
-//             Select Your Grade
-//             <select value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Grade'>
-//               <option value="4">--</option>
-//               <option value="4">Grade 4</option>
-//               <option value="5">Grade 5</option>
-//               <option value="6">Grade 6</option>
-//               <option value="7">Grade 7</option>
-//               <option value="8">Grade 8</option>
-//               <option value="9">Grade 9</option>
-//               <option value="10">Grade 10</option>
-//               <option value="11">Grade 11</option>
-//               <option value="12">Grade 12</option>
-//             </select>
-//           </label>
-//           <label style={{flex:1, textAlign: 'center'}}>
-//             Select a Course
-//             <select value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
-//               <option value="Math">--</option>
-//               <option value="Math">Math</option>
-//               <option value="Physics">Physics</option>
-//               <option value="Chemistry">Chemistry</option>
-//               <option value="History">History</option>
-//               <option value="English">English</option>
-//               <option value="Art">Art</option>
-//               <option value="Biology">Biology</option>
-//             </select>
-//           </label>
-//           <Link style={{flex:1}} to={linkTo}>
-//             <input type="submit" value="Submit" />
-//           </Link>
-//         </form>
-//         {/* {(this.state.current_room) ?
-//           <ChatRoom grade={this.state.grade}
-//           subject={this.state.subject}
-//           username={this.state.username}
-//           socket={this.state.socket} />
-//           : */}
-//           <RoomListComponent
-//             grade={this.state.grade}
-//             subject={this.state.subject}
-//             room={this.getRoom()}
-//             courses={this.state.courses}
-//             socket={this.state.socket} />
-//         {/* } */}
-//       </div>
-//     );
-//   }
+
+    // return (
+    //   <div className={'flexboxcol'}>
+    //     <h2 style={{flex:1}}>I need help in ....</h2>
+    //     <form onSubmit={this.handleSubmit} className={'flexbox'}>
+    //       <label style={{flex:1, textAlign: 'center'}}>
+    //         Select Your Grade
+    //         <select value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Grade'>
+    //           <option value="4">--</option>
+    //           <option value="4">Grade 4</option>
+    //           <option value="5">Grade 5</option>
+    //           <option value="6">Grade 6</option>
+    //           <option value="7">Grade 7</option>
+    //           <option value="8">Grade 8</option>
+    //           <option value="9">Grade 9</option>
+    //           <option value="10">Grade 10</option>
+    //           <option value="11">Grade 11</option>
+    //           <option value="12">Grade 12</option>
+    //         </select>
+    //       </label>
+    //       <label style={{flex:1, textAlign: 'center'}}>
+    //         Select a Course
+    //         <select value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
+    //           <option value="Math">--</option>
+    //           <option value="Math">Math</option>
+    //           <option value="Physics">Physics</option>
+    //           <option value="Chemistry">Chemistry</option>
+    //           <option value="History">History</option>
+    //           <option value="English">English</option>
+    //           <option value="Art">Art</option>
+    //           <option value="Biology">Biology</option>
+    //         </select>
+    //       </label>
+    //       <Link style={{flex:1}} to={linkTo}>
+    //         <input type="submit" value="Submit" />
+    //       </Link>
+    //     </form>
+    //     {/* {(this.state.current_room) ?
+    //       <ChatRoom grade={this.state.grade}
+    //       subject={this.state.subject}
+    //       username={this.state.username}
+    //       socket={this.state.socket} />
+    //       : */}
+    //       <RoomListComponent
+    //         grade={this.state.grade}
+    //         subject={this.state.subject}
+    //         room={this.getRoom()}
+    //         courses={this.state.courses}
+    //         socket={this.state.socket} />
+    //     {/* } */}
+    //   </div>
+    // );
+  // }
 };
 
 export default GetHelpComponent;
