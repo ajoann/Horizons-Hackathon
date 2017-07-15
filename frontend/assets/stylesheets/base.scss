@@ -1,3 +1,10 @@
+body {
+  font-family: 'Source Sans Pro';
+  font-weight: 600;
+  font-size: 15px;
+  color: #00568c;
+}
+
 .flexcenter {
   display: flex;
   justify-content: center;
@@ -7,6 +14,13 @@
 .flexcolumn {
   display: flex;
   flex-direction: column;
+}
+
+.flexcolumncenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
@@ -69,7 +83,7 @@
   align-items: center;
   padding: 15px 120px;
   border-radius: 20px;
-  margin: 50px 40px 0px 40px;
+  margin: 5vh 40px 5vh 40px;
 }
 
 .about {
@@ -93,7 +107,6 @@
 }
 .info {
   padding-top: 50px;
-  height: 300px
 }
 .desk {
   padding-top: 50px;
@@ -106,7 +119,8 @@
 
 //FONTS
 .h1 {
-  padding-bottom: 50px;
+  padding: 30px;
+  margin: 0px;
   font-family: 'Source Sans Pro';
   font-weight: 600;
   font-size: 50px;
@@ -116,7 +130,8 @@
   font-family: 'Source Sans Pro';
   font-weight: 600;
   font-size: 40px;
-  color: #00568c
+  color: #00568c;
+  margin: 0px;
 }
 .h3 {
   font-family: 'Source Sans Pro';
@@ -209,6 +224,8 @@
 }
 
 .dropdown {
+  margin-left: 40px;
+  border-radius: 10px;
   width: 20vw;
   height: 50px;
 }

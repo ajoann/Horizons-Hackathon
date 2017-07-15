@@ -50,11 +50,12 @@ class GetHelpComponent extends React.Component {
         const linkTo = "/chatroom/"+this.state.grade+"/"+this.state.subject;
         return (
             <div className={'flexboxcol'}>
-              <span className = "h1">I need help with...</span>
+              <span className = "h1" style={{padding: '30px'}}>I need help with...</span>
+              <div className="flexcenter">
                 <form onSubmit={this.handleSubmit} className={'flexbox'}>
-                    <label style={{flex:1, textAlign: 'center'}}>
-                        Select Your Grade
-                        <select className="dropdown pink" value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Select Your Grade'>
+                    <label className="flexcolumncenter">
+                        <span className="h4" style={{marginLeft: '40px'}}>Select Your Grade</span>
+                        <select className="dropdown yellow" value={this.state.grade} onChange={this.handleChangeGrade} name="Grade" placeholder='Select Your Grade'>
                             <option value="4">Grade 4</option>
                             <option value="5">Grade 5</option>
                             <option value="6">Grade 6</option>
@@ -66,9 +67,9 @@ class GetHelpComponent extends React.Component {
                             <option value="12">Grade 12</option>
                         </select>
                     </label>
-                    <label style={{flex:1, textAlign: 'center'}}>
-                        Select a Course
-                        <select className="dropdown pink" value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
+                    <label className="flexcolumncenter">
+                        <span className="h4" style={{marginLeft: '40px'}}>Select a Course</span>
+                        <select className="dropdown yellow" value={this.state.subject} onChange={this.handleChangeSubject} name="Subject" placeholder='Subject'>
                             <option value="Math">Math</option>
                             <option value="Physics">Physics</option>
                             <option value="Chemistry">Chemistry</option>
@@ -78,10 +79,11 @@ class GetHelpComponent extends React.Component {
                             <option value="Biology">Biology</option>
                         </select>
                     </label>
+                    </form>
+                  </div>
                     <button className="loginbutton pink" type="submit">
-                      <Link className="h4" to="/tutor/home">Sign me up</Link>
+                      <Link className="h2" to="/tutor/home">Sign me up</Link>
                     </button>
-                </form>
                 {(this.state.current_room) ?
                   <ChatRoom grade={this.state.grade}
                   subject={this.state.subject}
