@@ -5,10 +5,7 @@ module.exports = function(io) {
 
   io.on('connection', socket => {
     console.log('connected');
-    /**  REPLACE WITH NEW ROOM  **/
     socket.room = 'ROOMSLIST';
-    /**  REPLACE WITH NEW ROOM  **/
-
 
     /** LISTENERS FOR ROOM PREVIEW **/
     // RECEIVE REQUEST FOR ALL ROOMS

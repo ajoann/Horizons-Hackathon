@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // class component
 class RoomPreviewComponent extends React.Component {
   constructor(props) {
@@ -50,19 +51,21 @@ class RoomPreviewComponent extends React.Component {
     console.log('courses: ',this.state.courses);
     return(
       <div>
-        {/* {this.state.courses.forEach((course) => {
-
-        })} */}
-
         <div className={'flexbox'}>
-          {this.state.courses.map((course, index) => (
-            <button key={index} className={'classbutton'}>
-              {/* GRADE: */}
-              <span>Grade: {course.Grade} </span>
-              {/* SUBJECT: */}
-              <span> {course.Course}</span>
-            </button>
-          ))}
+          {this.state.courses.map((course, index) => {
+            const linkTo = "/chatroom/"+course.Grade+"/"+course.Subject;
+            console.log('course: ',course);
+            return (
+              <button key={index} className={'classbutton'}>
+                {/* GRADE: */}
+                <Link style={{flex:1}} to={linkTo}>
+                  <div>Grade: {course.Grade} </div>
+                  {/* SUBJECT: */}
+                  <div> {course.Subject}</div>
+                </Link>
+              </button>
+            )
+          })}
         </div>
       </div>
     );

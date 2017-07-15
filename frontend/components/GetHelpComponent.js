@@ -40,7 +40,7 @@ class GetHelpComponent extends React.Component {
           const bp = roomName.indexOf(' ');
           const grade = roomName.substring(0, bp);
           const subject = roomName.substring(bp+1, roomName.length);
-          newCourses.push({Grade: grade, Course: subject, Count: rooms[roomName].length});
+          newCourses.push({Grade: grade, Subject: subject, Count: rooms[roomName].length});
         }
       });
       console.log('NEW COURSES: ',newCourses);
