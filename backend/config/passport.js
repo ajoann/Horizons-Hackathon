@@ -34,7 +34,7 @@ module.exports = function(passport) {
       User.findOne({ 'google.email' : profile.emails[0].value }, function(err, user) {
         if (err) return done(err);
 
-        if (user) { 
+        if (user) {
             return done(null, user);
         } else {
           // if the user isnt in our database, create a new user
@@ -54,7 +54,5 @@ module.exports = function(passport) {
         }
       });
     });
-
   }));
-
 };

@@ -2,44 +2,26 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-
-import HomeComponent from '../components/Home/HomeComponent';
-import HomeHeaderComponent from '../components/Header';
-import SplashComponent from '../components/Login/SplashComponent';
-import ChatComponent from '../components/Chat/ChatComponent';
-import RoomsComponent from '../components/Rooms/RoomsComponent';
+import { Link, Route } from 'react-router-dom';
 
 import Title from '../components/Title';
-import ChatRoom from '../components/ChatRoom';
+// import TutorHomeComponent from '../components/TutorHomeComponent';
+// import TutorRegisterComponent from '../components/TutorRegisterComponent';
+// import StudentHomeComponent from '../components/StudentHomeComponent';
+// import HomeComponent from '../components/HomeComponent';
+import Routes from '../routes';
 
-const AppContainer = ({ name }) => {
-  var defaultUsername = "Guest" + Math.round(Math.random()*100);
+const AppContainer = (props) => {
   return (
     <div>
-      <HomeHeaderComponent/>
-      <RoomsComponent/>
-      {/* <ChatRoom grade={5} subject={"Physics"} username={defaultUsername}/> */}
-    </div>
+      <Link to="/">
+      <span className={'hometitle'}>
+        OUR FIRST WEBPAGE
+      </span>
+    </Link>
+    { Routes }
+  </div>
   );
+}
 
-};
-
-AppContainer.propTypes = {
-  name: PropTypes.string,
-};
-
-const mapStateToProps = (state) => {
-  return {
-    name: state.name
-  };
-};
-
-const mapDispatchToProps = (/* dispatch */) => {
-  return {
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppContainer);
+export default AppContainer;

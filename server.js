@@ -53,15 +53,13 @@ auth(app, passport);
 //-------LOGIN WALL-----
 
 
-//Route that leads to the React App!
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/public/index.html');
-});
-
-
 //Protected API Routes
 app.use('/api', api);
 
+//Route that leads to the React App!
+app.get('/*', (request, response) => {
+  response.sendFile(__dirname + '/public/index.html');
+});
 server.listen(PORT, error => {
     error
     ? console.error(error)
