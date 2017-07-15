@@ -5,6 +5,9 @@ import GetHelpComponent from './GetHelpComponent';
 // class component
 const TutorHomeComponent = (props) => {
   console.log('TUTOR HOME: ', props.socket);
+  const tutorUsername = "Student"+Math.round(Math.random()*1000);
+  localStorage.setItem('username', tutorUsername);
+  console.log('props in tutor home:', props);
 
   return (
     <div>

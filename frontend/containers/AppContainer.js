@@ -13,9 +13,9 @@ const AppContainer = (props) => {
   return (
     <div>
       <Link to="/">
-        <span className={'hometitle'}>
+        {/* <span className={'hometitle'}>
           OUR FIRST WEBPAGE
-        </span>
+        </span> */}
       </Link>
       { Routes }
     </div>

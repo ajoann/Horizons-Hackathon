@@ -1,17 +1,14 @@
 import React from 'react';
 // class component
 class RoomPreviewComponent extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log('props in room preview:', props);
+
     this.state = {
-      socket: io(),
-      courses: [
-        // {Grade: '6', Course: 'Math', Count: 0},
-        // {Grade: '7', Course: 'Math', Count: 0},
-        // {Grade: '8', Course: 'Math', Count: 0},
-        // {Grade: '5', Course: 'History', Count: 0},
-        // {Grade: '7', Course: 'History', Count: 0}
-      ]
+      socket: props.socket,
+      courses: [],
+      username: localStorage.getItem('username')
     };
   }
 
@@ -22,11 +19,12 @@ class RoomPreviewComponent extends React.Component {
       console.log('CLIENT RECEIVED ROOM', rooms);
       let newCourses = [];
       Object.keys(rooms).map((roomName, index) => {
-        const bp = roomName.indexOf(' ');
-        const grade = roomName.substring(0, bp);
-        const subject = roomName.substring(bp+1, roomName.length);
-
-        newCourses.push({Grade: grade, Course: subject, Count: rooms[roomName].length});
+        if (roomName !== 'ROOMSLIST') {
+          const bp = roomName.indexOf(' ');
+          const grade = roomName.substring(0, bp);
+          const subject = roomName.substring(bp+1, roomName.length);
+          newCourses.push({Grade: grade, Course: subject, Count: rooms[roomName].length});
+        }
       });
       console.log('NEW COURSES: ',newCourses);
       this.setState({courses: newCourses});

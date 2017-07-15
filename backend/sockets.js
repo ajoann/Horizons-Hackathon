@@ -6,7 +6,7 @@ module.exports = function(io) {
   io.on('connection', socket => {
     console.log('connected');
     /**  REPLACE WITH NEW ROOM  **/
-    socket.room = '8 Physics';
+    socket.room = 'ROOMSLIST';
     /**  REPLACE WITH NEW ROOM  **/
 
 
@@ -14,11 +14,8 @@ module.exports = function(io) {
     // RECEIVE REQUEST FOR ALL ROOMS
     socket.on('getrooms', () => {
       console.log('SERVER RECEIVED GET ROOMS');
-      socket.emit('getrooms', roomUsers);
+      io.to('ROOMSLIST').emit('getrooms', roomUsers);
     });
-
-
-
 
     /** LISTENERS FOR CHAT ROOM **/
     // RECEIVE ROOM
@@ -33,6 +30,7 @@ module.exports = function(io) {
       }
 
       if (socket.room) {
+        console.log('user LEAVING room', socket.room);
         socket.leave(socket.room);
         socket.to(socket.room).emit('message', {
           username: 'System',
@@ -47,6 +45,10 @@ module.exports = function(io) {
 
         // EMIT updated users including this one to room
         io.to(socket.room).emit('updateusers', roomUsers[socket.room]);
+
+        // EMIT change of room to all rooms
+        io.to('ROOMSLIST').emit('getrooms', roomUsers);
+        console.log('emitted change to rooms list with new rooms: ', roomUsers);
       }
       //join new room:
       socket.room = requestedRoom;
