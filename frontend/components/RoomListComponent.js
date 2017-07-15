@@ -11,7 +11,9 @@ class RoomListComponent extends React.Component {
         <h1 style={{textAlign: "center"}}> Active Classes </h1>
         <RoomPreviewComponent socket={this.props.socket}
           grade={this.props.grade}
-          subject={this.props.subject}/>
+          subject={this.props.subject}
+          courses={this.props.courses}
+          room={this.props.room}/>
       </div>
     );
   }

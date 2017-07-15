@@ -13,7 +13,7 @@ module.exports = function(io) {
     /** LISTENERS FOR ROOM PREVIEW **/
     // RECEIVE REQUEST FOR ALL ROOMS
     socket.on('getrooms', () => {
-      console.log('SERVER RECEIVED GET ROOMS');
+      console.log('SERVER RECEIVED GET ROOMS', roomUsers);
       io.to('ROOMSLIST').emit('getrooms', roomUsers);
     });
 
@@ -41,7 +41,12 @@ module.exports = function(io) {
         var oldRoomUsers = roomUsers[socket.room]  || [];
         var newOld = oldRoomUsers.slice();
         newOld.splice(oldRoomUsers.indexOf(socket.username), 1);
-        roomUsers[socket.room] = newOld;
+        if (socket.room !== 'ROOMSLIST' && newOld.length < 1) {
+          // roomUsers[socket.room] = null;
+          delete roomUsers[socket.room];
+        } else {
+          roomUsers[socket.room] = newOld;
+        }
 
         // EMIT updated users including this one to room
         io.to(socket.room).emit('updateusers', roomUsers[socket.room]);
@@ -66,6 +71,9 @@ module.exports = function(io) {
         roomUsers[socket.room] = newNew;
         console.log('rooms now: ', roomUsers);
         io.to(requestedRoom).emit('updateusers', roomUsers[socket.room]);
+
+        io.to('ROOMSLIST').emit('getrooms', roomUsers);
+        console.log('emitted change to rooms list with new rooms: ', roomUsers);
       });
     });
 
@@ -86,7 +94,7 @@ module.exports = function(io) {
       if (!socket.room) {
         return socket.emit('errorMessage', 'No rooms joined!');
       }
-      console.log('receives typing');
+      // console.log('receives typing');
       socket.to(socket.room).emit('typing', { username: socket.username } );
       //create new timeout
       if (typingPeople[socket.username]) {
@@ -103,14 +111,26 @@ module.exports = function(io) {
       if (!socket.room) {
         return socket.emit('errorMessage', 'No rooms joined!');
       }
-      console.log('receives stop of typing');
+      // console.log('receives stop of typing');
       socket.to(socket.room).emit('stoptyping', { username: socket.username });
     });
     // RECEIVE DISCONNECT OF SPECIFIC USER
     socket.on('disconnect', ()  => {
-      var oldUsers = roomUsers[socket.room] || [];
-      oldUsers.splice(oldUsers.indexOf(socket.username), 1);
-      roomUsers[socket.room] = oldUsers;
+      var oldRoomUsers = roomUsers[socket.room]  || [];
+      var newOld = oldRoomUsers.slice();
+      newOld.splice(oldRoomUsers.indexOf(socket.username), 1);
+      if (socket.room !== 'ROOMSLIST' && newOld.length < 1) {
+        // roomUsers[socket.room] = null;
+        delete roomUsers[socket.room];
+      } else {
+        roomUsers[socket.room] = newOld;
+      }
+
+
+      //
+      // var oldUsers = roomUsers[socket.room] || [];
+      // oldUsers.splice(oldUsers.indexOf(socket.username), 1);
+      // roomUsers[socket.room] = oldUsers;
     })
   });
 }

@@ -15,8 +15,6 @@ export default (
     <Route exact path="/tutor/register" component={TutorRegisterComponent} />
     <Route exact path="/tutor/home" render={() => <TutorHomeComponent socket={socket}/>} />
 		<Route path="/chatroom/:grade/:subject" render={({match}) => <ChatRoom socket={socket} match={match}/>} />
-		{/* <Route path="/chatroom/:grade/:subject" component={ChatRoom} /> */}
-
     <Route exact path="/" component={HomeComponent} />
 	</Switch>
 );
