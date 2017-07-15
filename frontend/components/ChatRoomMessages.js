@@ -10,11 +10,10 @@ class ChatRoomMessages extends React.Component {
 
     super(props);
 
-    console.log('username in msgs:', this.props.username);
     this.state = {
       socket: this.props.socket,
       messages: [],
-      username: this.props.username,
+      username: localStorage.getItem('username'),
       typingusers: [],
       message: ""
     }

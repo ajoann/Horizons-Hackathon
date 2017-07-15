@@ -10,11 +10,12 @@ class RoomListComponent extends React.Component {
       <div>
         <RoomPreviewComponent socket={this.props.socket}
           grade={this.props.grade}
-          subject={this.props.subject}/>
-        </div>
-      );
-    }
-  };
+          subject={this.props.subject}
+          courses={this.props.courses}
+          room={this.props.room}/>
+      </div>
+    );
+  }
+};
 
-
-  export default RoomListComponent;
+export default RoomListComponent;

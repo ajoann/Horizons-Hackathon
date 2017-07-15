@@ -4,17 +4,13 @@ import ChatRoomMessages from './ChatRoomMessages';
 
 class ChatRoom extends React.Component {
   constructor (props) {
-    // expected props: GRADE, SUBJECT, USERNAME, SOCKET
-    // expected state: ACTIVEUSERS (array),
-
     super(props);
-    console.log('username in cr:', this.props.username);
-
+    console.log('CHATROOM PROPS: ', props);
     this.state = {
       socket: this.props.socket,
       activeUsers: [],
-      username: this.props.username,
-      roomName: 'default', // CHANGE TO SUBJECT AND GRADE
+      username: localStorage.getItem('username'),
+      roomName: props.match.params.grade + ' ' + props.match.params.subject, // CHANGE TO SUBJECT AND GRADE
     };
   }
 
@@ -43,7 +39,7 @@ class ChatRoom extends React.Component {
         <div className="chatboxheader">
 
           <div>
-            <span className="h1">Grade {this.props.grade} {this.props.subject}</span>
+            <span className="h1">Grade {this.props.match.params.grade} {this.props.match.params.subject}</span>
           </div>
             {/* <div className = "chatbutton pink">
               <span className = "h4">Active Users: {this.state.activeUsers.length}</span>
@@ -64,8 +60,8 @@ class ChatRoom extends React.Component {
             return <span className="bold" key={index}> {returnUser}</span>  })}
           </h4>
           <ChatRoomMessages
-            grade={this.props.grade}
-            subject={this.props.subject}
+            grade={this.props.match.params.grade}
+            subject={this.props.match.params.subject}
             username={this.state.username}
             socket={this.state.socket}
           />
