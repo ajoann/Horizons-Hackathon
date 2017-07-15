@@ -19,7 +19,8 @@ router.route('/initialize')
           user: null})
       }
     });
-  }).post(function(req, res) {
+  })
+  .post(function(req, res) {
     User.findOne({ 'google.email' : req.user.google.email }, function(err, user) {
       if (err) console.log(err);
       if (user) {

@@ -1,5 +1,5 @@
-const Room = require('./room');
-const User = require('./user');
+const Room = require('../models/room');
+const User = require('../models/user');
 
 module.exports = {
   createRoom(subject, grade, callback) {
