@@ -26,13 +26,11 @@ class GetHelpComponent extends React.Component {
     handleChangeGrade(e){
         this.setState({grade: e.target.value})
         // console.log('grade', this.state.grade, 'subject', this.state.subject)
-
     }
 
     handleChangeSubject(e){
         this.setState({subject: e.target.value})
         // console.log('grade', this.state.grade, 'subject', this.state.subject)
-
     }
 
     handleSubmit(e){

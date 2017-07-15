@@ -20,10 +20,12 @@ router.route('/initialize')
     });
   })
   .post(function(req, res) {
+      console.log('inside the post: ', req.body);
     User.findOne({ 'google.email' : req.user.google.email }, function(err, user) {
       if (err) console.log(err);
       if (user) {
         user.local.role = req.body.role;
+        console.log('inside updating: ', user);
         user.local.school = req.body.school;
         user.local.preferences = req.body.preferences;
         user.save(function(err, updatedUser) {
