@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 var User = require('./models/user');
 var Room = require('./models/room');
+var calendarService = require('./services/calendarService');
 
 //Route to initialize a newly logged in user in the React App
 router.route('/initialize')
@@ -56,5 +57,8 @@ router.route('/rooms')
 
   });
 
+router.get('/test', function(req, res) {
+  calendarService(req.user);
+})
 
 module.exports = router;

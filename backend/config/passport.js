@@ -42,7 +42,6 @@ module.exports = function(passport) {
             user.save(function(err, savedUser) {
               return done(null, savedUser);
             })
-            //return done(null, user);
         } else {
           // if the user isnt in our database, create a new user
           var newUser = new User();

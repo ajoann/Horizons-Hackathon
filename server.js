@@ -27,8 +27,7 @@ const socketConfig = require ('./backend/sockets.js');
 socketConfig(io);
 // END SOCKET SERVER STUFF
 
-//Express Middleware
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -42,6 +41,8 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 
+//Express Middleware
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Login Route
 app.get('/login', (req, res) => {
@@ -58,7 +59,7 @@ app.use('/api', api);
 
 //Route that leads to the React App!
 app.get('/*', (request, response) => {
-  response.sendFile(__dirname + '/public/index.html');
+  response.sendFile(__dirname + '/public/app.html');
 });
 server.listen(PORT, error => {
     error
