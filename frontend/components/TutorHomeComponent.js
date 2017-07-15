@@ -55,6 +55,9 @@ class TutorHomeComponent extends React.Component {
 
     return (
       <div>
+        {/* <div className="infoimg">
+          <img src="/img/tutorinfo.png" className="info" />
+        </div> */}
         <RoomListComponent socket={this.state.socket}
           room={'ROOMSLIST'}
           courses={this.state.courses} />

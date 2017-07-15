@@ -8,17 +8,16 @@ import Title from '../components/Title';
 // import StudentHomeComponent from '../components/StudentHomeComponent';
 // import HomeComponent from '../components/HomeComponent';
 import Routes from '../routes';
+import HomeHeaderComponent from '../Components/Header';
 
 const AppContainer = (props) => {
   return (
     <div>
-      <Link to="/">
-        {/* <span className={'hometitle'}>
-          OUR FIRST WEBPAGE
-        </span> */}
-      </Link>
-      { Routes }
-    </div>
+      {/* <Link to="/"> */}
+      <HomeHeaderComponent/>
+    {/* </Link> */}
+    { Routes }
+  </div>
   );
 }
 

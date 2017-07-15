@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import HomeHeaderComponent from '../Header';
 import HomeTopComponent from './Top';
-import HomeBottomComponent from '../Login/SplashBottom';
+import HomeBottomComponent from '../Home/Bottom';
 import axios from 'axios'
 
 class HomeComponent extends React.Component {
@@ -38,7 +38,7 @@ class HomeComponent extends React.Component {
         }
         return (
             <div>
-                <HomeHeaderComponent/>
+                {/* <HomeHeaderComponent/> */}
                 <HomeTopComponent/>
                 <HomeBottomComponent/>
             </div>
