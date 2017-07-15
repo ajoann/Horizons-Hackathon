@@ -28,6 +28,8 @@ socketConfig(io);
 // END SOCKET SERVER STUFF
 
 //Express Middleware
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -49,17 +51,15 @@ app.get('/login', (req, res) => {
 //Authentication Routes
 auth(app, passport);
 //-------LOGIN WALL-----
-app.use(express.static(path.join(__dirname, 'public')));
-
-//Route that leads to the React App!
-app.get('/', (request, response) => {
-    response.sendFile(__dirname + '/public/index.html');
-});
 
 
 //Protected API Routes
 app.use('/api', api);
 
+//Route that leads to the React App!
+app.get('/*', (request, response) => {
+  response.sendFile(__dirname + '/public/index.html');
+});
 server.listen(PORT, error => {
     error
     ? console.error(error)

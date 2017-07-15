@@ -13,5 +13,5 @@ module.exports = {
   deleteRoom(id, callback) {
     Room.deleteOne({ id }, callback);
   },
-  
+
 }

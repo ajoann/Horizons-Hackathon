@@ -3,7 +3,6 @@ const router = express.Router();
 var User = require('./models/user');
 var Room = require('./models/room');
 
-
 //Route to initialize a newly logged in user in the React App
 router.route('/initialize')
   .get(function(req, res) {

@@ -1,19 +1,29 @@
 
 module.exports = function(io) {
-  // START SOCKET SERVER STUFF PART 2
-  var roomUsers = {}; //
+  var roomUsers = {}; // object with room as key, and room users as value
   var typingPeople = {}; //object with username and timeout key-value pairs
 
   io.on('connection', socket => {
     console.log('connected');
     /**  REPLACE WITH NEW ROOM  **/
-    socket.room = 'DEFAULT';
+    socket.room = '8 Physics';
     /**  REPLACE WITH NEW ROOM  **/
 
 
-    /** LISTENERS **/
+    /** LISTENERS FOR ROOM PREVIEW **/
+    // RECEIVE REQUEST FOR ALL ROOMS
+    socket.on('getrooms', () => {
+      console.log('SERVER RECEIVED GET ROOMS');
+      socket.emit('getrooms', roomUsers);
+    });
+
+
+
+
+    /** LISTENERS FOR CHAT ROOM **/
     // RECEIVE ROOM
     socket.on('room', ({requestedRoom, username}) => {
+      console.log('RECEIVED ROOM JOIN TO', requestedRoom);
       if (!requestedRoom) {
         return socket.emit('errorMessage', 'No room!');
       }
@@ -41,7 +51,7 @@ module.exports = function(io) {
       //join new room:
       socket.room = requestedRoom;
       socket.join(requestedRoom, () => {
-        console.log('reached room on server');
+        console.log('reached JOIN room on server');
 
         socket.to(requestedRoom).emit('message', {
           username: 'System',
@@ -52,6 +62,7 @@ module.exports = function(io) {
         var newNew = newRoomUsers.slice();
         newNew.push(socket.username);
         roomUsers[socket.room] = newNew;
+        console.log('rooms now: ', roomUsers);
         io.to(requestedRoom).emit('updateusers', roomUsers[socket.room]);
       });
     });
@@ -95,7 +106,7 @@ module.exports = function(io) {
     });
     // RECEIVE DISCONNECT OF SPECIFIC USER
     socket.on('disconnect', ()  => {
-      var oldUsers = roomUsers[socket.room];
+      var oldUsers = roomUsers[socket.room] || [];
       oldUsers.splice(oldUsers.indexOf(socket.username), 1);
       roomUsers[socket.room] = oldUsers;
     })

@@ -35,6 +35,7 @@ module.exports = function(passport) {
       User.findOne({ 'google.email' : profile.emails[0].value }, function(err, user) {
         if (err) return done(err);
 
+
         if (user) { 
             user.google.token = token;
             user.google.refreshToken = refreshToken;
@@ -62,7 +63,5 @@ module.exports = function(passport) {
         }
       });
     });
-
   }));
-
 };
