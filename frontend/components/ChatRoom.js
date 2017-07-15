@@ -65,7 +65,7 @@ class ChatRoom extends React.Component {
         </div>
 
         {this.state.isTutor && !this.state.videoRoomLive &&
-        <button className="loginbutton yellow" style{{marginBottom: 0}}>
+        <button className="loginbutton yellow" style={{marginBottom: 0}}>
           <a href="https://plus.google.com/hangouts/_/calendar/MTIzbm9zcGFtYWpAZ21haWwuY29t.a7qqv3g4j3j8ubj4dr07a0db34">
             <span className="h4">Create Live Video Room</span>
           </a>
