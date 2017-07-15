@@ -4,17 +4,15 @@ import ChatRoomMessages from './ChatRoomMessages';
 
 class ChatRoom extends React.Component {
   constructor (props) {
-    // expected props: GRADE, SUBJECT, USERNAME, SOCKET
-    // expected state: ACTIVEUSERS (array),
-
     super(props);
-    console.log('username in cr:', this.props.username);
-
+    console.log('CHATROOM PROPS: ', props);
     this.state = {
       socket: this.props.socket,
       activeUsers: [],
-      username: this.props.username,
-      roomName: 'default', // CHANGE TO SUBJECT AND GRADE
+      username: localStorage.getItem('username'),
+      roomName: props.match.params.grade + ' ' + props.match.params.subject,
+      videoRoomLive: false,
+      isTutor: false
     };
   }
 
@@ -31,6 +29,22 @@ class ChatRoom extends React.Component {
     this.state.socket.on('updateusers', (data) => {
       this.setState({activeUsers: data})
     });
+
+    if (this.state.username.indexOf('Tutor') === 0) {
+      this.setState({isTutor: true});
+    }
+    console.log('IS TUTOR: ',this.state.isTutor, 'LIVE VIDEO: ',this.state.videoRoomLive);
+
+    this.state.socket.on('startedCall', (tutorName) => {
+      if (tutorName !== this.state.username) {
+        const alertmsg = tutorName + " started a call for this room! Click the button below to join!";
+        alert(alertmsg);
+      }
+      this.setState({videoRoomLive: true});
+    });
+  }
+  emitStartCall () {
+    this.state.socket.emit('startedCall', this.state.username);
   }
 
   render () {
@@ -43,12 +57,30 @@ class ChatRoom extends React.Component {
         <div className="chatboxheader">
 
           <div>
-            <span className="h1">Grade {this.props.grade} {this.props.subject}</span>
+            <span className="h1">Grade {this.props.match.params.grade} {this.props.match.params.subject}</span>
           </div>
             {/* <div className = "chatbutton pink">
               <span className = "h4">Active Users: {this.state.activeUsers.length}</span>
             </div> */}
         </div>
+
+        {this.state.isTutor && !this.state.videoRoomLive &&
+        <button className="loginbutton yellow" style={{marginBottom: 0}}>
+          <a href="https://plus.google.com/hangouts/_/calendar/MTIzbm9zcGFtYWpAZ21haWwuY29t.a7qqv3g4j3j8ubj4dr07a0db34">
+            <span className="h4">Create Live Video Room</span>
+          </a>
+        </button>}
+        {this.state.isTutor && !this.state.videoRoomLive &&
+          <button className="loginbutton yellow" style={{width: '500px'}} onClick={() => this.emitStartCall()}>
+            <span className="h4" style={{margin: 0}}>Invite Students!</span>
+          </button>
+        }
+        {!this.state.isTutor && this.state.videoRoomLive &&
+          <button className="loginbutton yellow" style={{width: '500px'}}>
+            <a className="h4" href="https://plus.google.com/hangouts/_/calendar/MTIzbm9zcGFtYWpAZ21haWwuY29t.a7qqv3g4j3j8ubj4dr07a0db34">
+              Join Live Video Room
+            </a>
+        </button>}
 
         <div class = "infoimg">
             <img src="/img/chatinstruct.png" class = "info"/>
@@ -64,8 +96,8 @@ class ChatRoom extends React.Component {
             return <span className="bold" key={index}> {returnUser}</span>  })}
           </h4>
           <ChatRoomMessages
-            grade={this.props.grade}
-            subject={this.props.subject}
+            grade={this.props.match.params.grade}
+            subject={this.props.match.params.subject}
             username={this.state.username}
             socket={this.state.socket}
           />
