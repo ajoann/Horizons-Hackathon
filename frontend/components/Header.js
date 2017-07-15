@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomeHeaderComponent = () => {
     return (
       <div className = "header pink">
-        <img src="/img/tutorme.png" className = "logo"/>
+        <Link to="/">
+          <img src="/img/tutorme.png" className = "logo"/>
+        </Link>
       </div>
     );
 };
