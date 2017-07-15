@@ -31,49 +31,24 @@ module.exports = function(callback){
   time2 = time2.toISOString();
 
   var event = {
-  'summary': 'Google I/O 2015',
-  'location': '800 Howard St., San Francisco, CA 94103',
-  'description': 'A chance to hear more about Google\'s developer products.',
+  'summary': 'Tutoring',
+  'description': 'Tutor Me Now',
   'anyoneCanAddSelf': true,
   'visibility': 'public',
   'hangoutLink': 'https://hangouts.google.com/hangouts/_/ylkydvhwyre7bghuoi5xkvj7fye',
   'start': {
-    'dateTime': time,
-    'timeZone': 'America/Los_Angeles',
+    'dateTime': time
   },
   'end': {
-    'dateTime': time2,
-    'timeZone': 'America/Los_Angeles',
+    'dateTime': time2
   },
   'attendees': [
-    {'email': 'hijaouyaaaa@gmail.com'},
-    {'email': 'sbrin@example.com'},
+    {'email': 'hijaouyaaaa@gmail.com'}
   ],
   'reminders': {
-    'useDefault': false,
-    'overrides': [
-      {'method': 'email', 'minutes': 24 * 60},
-      {'method': 'popup', 'minutes': 10},
-    ],
-  },
+    'useDefault': true
+  }
 };
-
-
-//   var key = require('./key.json');
-//   var jwtClient = new google.auth.JWT(
-//   key.client_email,
-//   null,
-//   key.private_key,
-//   ['https://www.googleapis.com/auth/calendar'], // an array of auth scopes
-//   null
-// );
-
-// jwtClient.authorize(function (err, tokens) {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   console.log('MY TOKENS :D ', tokens);
 
   // Make an authorized request to create new calendar event.
   calendar.events.insert({
