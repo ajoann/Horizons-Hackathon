@@ -3,7 +3,11 @@ Team: Amanda, Andre, Dominic, Max
 
 Project: Volunteer Tutor Platform
 
-CategorY: Social Impact
+Category: Social Impact
+
+Video Submission: https://cl.ly/0z1p1b3X1h1Y
+
+Live Demo: https://tutor-me-now.herokuapp.com
 
 
 
