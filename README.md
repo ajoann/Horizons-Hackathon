@@ -10,4 +10,4 @@ Video Submission:
 <a href="https://cl.ly/0z1p1b3X1h1Y"> <img src="https://github.com/ajoann/Horizons-Hackathon/blob/master/public/img/screenshot.png" alt="Checkout our site!" width="75%"> </a>
 <br />
 
-Live Demo: https://tutor-me-now.herokuapp.com
+Checkout the site! https://tutor-me-now.herokuapp.com
