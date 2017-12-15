@@ -1,5 +1,5 @@
 # Horizons Hackathon 2017
-Team: Amanda, Andre, Dominic, Max
+**Team:** Amanda, Andre, Dominic, Max
 
 **Project:** Volunteer Tutor Platform
 
